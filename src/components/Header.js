@@ -4,10 +4,14 @@ import SortIcon from '@material-ui/icons/Sort';
 
 const useStyles = makeStyles({
   appbar: {
-    background: 'none'
+    background: 'none',
+    fontFamily: 'Nunito'
   },
   appbarTitle: {
     flexGrow: '1'
+  },
+  colorTitle:{
+    color: '#5AFF3D'
   },
   appbarWrapper: {
     width: '80%',
@@ -26,7 +30,9 @@ export default function Header () {
       <div>
         <AppBar className={classes.appbar} elevation={0}>
           <Toolbar className={classes.appbarWrapper}>
-            <h1 className={classes.appbarTitle}>MyIsland.</h1>
+            <h1 className={classes.appbarTitle}>
+              My<span className={classes.colorTitle}>Island.</span>
+            </h1>
             <IconButton>
                 <SortIcon className={classes.icon}/>
             </IconButton>
