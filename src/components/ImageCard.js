@@ -43,20 +43,20 @@ export default function ImageCard({ place, checked }) {
             title="Contemplative Reptile"
             />
             <CardContent>
-            <Typography 
-                gutterBottom 
-                variant="h5" 
-                component="h2" 
-                className={classes.title}>
-                {place.title}
-            </Typography>
-            <Typography 
-                variant="body2" 
-                color="textSecondary" 
-                component="p"
-                className={classes.desc}>
-                {place.desc}
-            </Typography>
+                <Typography 
+                    gutterBottom 
+                    variant="h5" 
+                    component="h2" 
+                    className={classes.title}>
+                    {place.title}
+                </Typography>
+                <Typography 
+                    variant="body2" 
+                    color="textSecondary" 
+                    component="p"
+                    className={classes.desc}>
+                    {place.desc}
+                </Typography>
             </CardContent>  
         </Card>
     </Collapse>
