@@ -7,38 +7,58 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Collapse } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 645,
+    background: 'rgba(0,0,0,0.5)',
+    margin: '20px'
   },
   media: {
     height: 440,
   },
   title: {
     fontFamily: 'Nunito',
+    fontWeight: 'bold',
+    fontSize: '2rem',
+    color: '#fff'
+  },
+  desc: {
+      fontFamily: 'Nunito',
+      fontSize: '1.1rem',
+      color: '#ddd'
   }
 });
 
-export default function ImageCard() {
+export default function ImageCard({ place, checked }) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-        <CardMedia
-          className={classes.media}
-          image={process.env.PUBLIC_URL + '/assets/island1.jpg'}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>  
-    </Card>
+    <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+        <Card className={classes.root}>
+            <CardMedia
+            className={classes.media}
+            image={place.imageUrl}
+            title="Contemplative Reptile"
+            />
+            <CardContent>
+            <Typography 
+                gutterBottom 
+                variant="h5" 
+                component="h2" 
+                className={classes.title}>
+                {place.title}
+            </Typography>
+            <Typography 
+                variant="body2" 
+                color="textSecondary" 
+                component="p"
+                className={classes.desc}>
+                {place.desc}
+            </Typography>
+            </CardContent>  
+        </Card>
+    </Collapse>
   );
 }
